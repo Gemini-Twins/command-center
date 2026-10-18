@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Twins Online Services | Command Center</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --border: #334155;
+            --success: #4ade80;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Header Styles */
+        .header {
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .terminal-prompt {
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--success);
+            padding: 0.2rem 0.65rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            margin-top: 0.75rem;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: var(--success);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--success);
+        }
+
+        /* Hero Card */
+        .hero-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #0f172a;
+            padding: 0.55rem 1.1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 1.25rem 0 0.75rem 0;
+            color: var(--text-main);
+            letter-spacing: 0.02em;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 0.85rem;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-top: 0.2rem;
+        }
+
+        /* Apps & Utilities Cards */
+        .apps-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: border-color 0.2s;
+        }
+
+        .app-card:active {
+            border-color: var(--accent);
+            background: #26354a;
+        }
+
+        .app-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        .app-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .app-icon {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="terminal-prompt">&gt;_</div>
+        <h1>Gemini Twins</h1>
+        <div class="subtitle">Command Center & Hub</div>
+        <div>
+            <span class="status-badge">
+                <span class="status-dot"></span> System Online
+            </span>
+        </div>
+    </div>
+
+    <!-- Welcome Hero -->
+    <div class="hero-card">
+        <h2>Welcome to Gemini Twins</h2>
+        <p class="subtitle">Your centralized hub for digital solutions, rapid prototypes, logistics utilities, and mobile web apps.</p>
+        <a href="#apps" class="btn">🚀 View Apps</a>
+    </div>
+
+    <!-- Active Projects & Specs -->
+    <div class="section-title">📊 Active Projects & Specs</div>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-label">Active Projects</div>
+            <div class="stat-value">06+ Fully Deployed</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Stack Engine</div>
+            <div class="stat-value">HTML / JS</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Environment</div>
+            <div class="stat-value">Acode Optimized</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">CI/CD Sync</div>
+            <div class="stat-value">Netlify Instant</div>
+        </div>
+    </div>
+
+    <!-- Deployed Web Apps & Utilities -->
+    <div class="section-title" id="apps">📦 Deployed Web Apps & Utilities</div>
+    <p class="subtitle" style="margin-bottom: 0.75rem; font-size: 0.8rem;">Tap any card to launch</p>
+
+    <div class="apps-grid">
+        <!-- App 1 -->
+        <a href="https://gemin-biz-portal.netlify.app" target="_blank" class="app-card">
+            <div class="app-info">
+                <h3>Gemini Biz Portal</h3>
+                <p>Business management & portal hub</p>
+            </div>
+            <div class="app-icon">🏢</div>
+        </a>
+
+        <!-- App 2 -->
+        <a href="https://luthando-skills-matrix.netlify.app/" target="_blank" class="app-card">
+            <div class="app-info">
+                <h3>Skills Matrix</h3>
+                <p>Professional qualifications & competencies</p>
+            </div>
+            <div class="app-icon">📋</div>
+        </a>
+
+        <!-- App 3 -->
+        <a href="https://gemini-twins-video-ads.netlify.app" target="_blank" class="app-card">
+            <div class="app-info">
+                <h3>Gemini Twins Video Ads</h3>
+                <p>Digital marketing & video production ads</p>
+            </div>
+            <div class="app-icon">🎬</div>
+        </a>
+
+        <!-- App 4 -->
+        <a href="https://gemini-twins-online-services.netlify.app" target="_blank" class="app-card">
+            <div class="app-info">
+                <h3>Gemini Twins Online Services</h3>
+                <p>Main agency portal & digital solutions</p>
+            </div>
+            <div class="app-icon">🌐</div>
+        </a>
+
+        <!-- App 5 -->
+        <a href="https://lovable.dev/projects/060726e1-8b11-517f-87f1-b0ee6dcdb51b" target="_blank" class="app-card">
+            <div class="app-info">
+                <h3>Lovable Web Prototype</h3>
+                <p>AI-assisted web application project</p>
+            </div>
+            <div class="app-icon">⚡</div>
+        </a>
+
+        <!-- App 6 -->
+        <a href="https://gemini-smart-repair-app.netlify.app" target="_blank" class="app-card">
+            <div class="app-info">
+                <h3>Smart Repair Guide</h3>
+                <p>Interactive smartphone repair manual</p>
+            </div>
+            <div class="app-icon">📱</div>
+        </a>
+    </div>
+
+</body>
+</html>
